@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/08/22 20:54:41.000.484,=C:\Users\NETO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/08/22 20:55:39.000.247,C:\Users\NETO\Documents\Embarcadero\Studio\Projects\ACPDV.dproj=C:\Users\NETO\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/08/22 20:56:51.000.567,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.principal.pas=C:\Users\NETO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/08/22 20:56:51.000.567,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.principal.dfm=C:\Users\NETO\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/08/22 20:57:05.000.387,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\ACPDV.dproj=C:\Users\NETO\Documents\Embarcadero\Studio\Projects\ACPDV.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
