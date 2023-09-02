@@ -1,0 +1,15 @@
+program ACPDV;
+uses
+  Vcl.Forms,
+  acpdv.view.principal in 'src\view\acpdv.view.principal.pas' {pagePrincipal},
+  acpdv.view.page.login in 'src\view\acpdv.view.page.login.pas' {PageLogin},
+  acpd.view.componente.Transparencia in 'src\view\Componentes\acpd.view.componente.Transparencia.pas' {Form1};
+
+{$R *.res}
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TpagePrincipal, pagePrincipal);
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

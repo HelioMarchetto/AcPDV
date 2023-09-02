@@ -1,12 +1,9 @@
 unit acpdv.view.principal;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Data.DB,
-  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls;
-
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, acpdv.view.page.login;
 type
   TpagePrincipal = class(TForm)
     pnlContainer: TPanel;
@@ -33,7 +30,7 @@ type
     pnlMaisFuncoes: TPanel;
     Shape6: TShape;
     btnMaisFuncoes: TSpeedButton;
-    DBGrid1: TDBGrid;
+    gridProdutos: TDBGrid;
     pnlTotalCompra: TPanel;
     Label1: TLabel;
     Shape7: TShape;
@@ -61,17 +58,46 @@ type
     edtProduto: TEdit;
     pnlImgProduto: TPanel;
     imgProduto: TImage;
+    pnlMaster: TPanel;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
+    FLogin: TPageLogin;
+    procedure MontarBotoes;
     { Private declarations }
   public
     { Public declarations }
   end;
-
 var
   pagePrincipal: TpagePrincipal;
-
 implementation
-
 {$R *.dfm}
+procedure TpagePrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FLogin.Free;
+end;
+
+procedure TpagePrincipal.FormCreate(Sender: TObject);
+begin
+  MontarBotoes;
+end;
+
+procedure TpagePrincipal.FormShow(Sender: TObject);
+begin
+  FLogin := TPageLogin.Create(nil);
+  FLogin.Parent := pnlMaster;
+  FLogin.Show;
+end;
+
+procedure TpagePrincipal.MontarBotoes;
+begin
+  btnCancelarOp.Caption := 'Cancelar Operação ' + ''#13'' + ' (ESC)';
+  btnConsultarPreco.Caption := 'Consultar Preço ' + ''#13'' + ' (F4)';
+  btnAbrirCaixa.Caption := 'Abrir Caixa ' + ''#13'' + ' (F2)';
+  btnCancelarVenda.Caption := 'Cancelar Venda ' + ''#13'' + ' (F6)';
+  btnCancelarItem.Caption := 'Cancelar Item ' + ''#13'' + ' (F5)';
+  btnMaisFuncoes.Caption := 'Mais Funções ' + ''#13'' + ' (F12)';
+end;
 
 end.
