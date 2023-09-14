@@ -12,9 +12,11 @@ object pagePrincipal: TpagePrincipal
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
   Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   TextHeight = 15
   object pnlMaster: TPanel
@@ -25,8 +27,6 @@ object pagePrincipal: TpagePrincipal
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1116
-    ExplicitHeight = 728
     object pnlContainer: TPanel
       Left = 0
       Top = 0
@@ -35,8 +35,9 @@ object pagePrincipal: TpagePrincipal
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 1116
-      ExplicitHeight = 728
+      DesignSize = (
+        1166
+        729)
       object pnlTitle: TPanel
         Left = 0
         Top = 0
@@ -54,7 +55,6 @@ object pagePrincipal: TpagePrincipal
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 1116
       end
       object pnlBottom: TPanel
         Left = 0
@@ -64,8 +64,6 @@ object pagePrincipal: TpagePrincipal
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitTop = 630
-        ExplicitWidth = 1116
         object pnlCancelarOp: TPanel
           AlignWithMargins = True
           Left = 0
@@ -171,7 +169,6 @@ object pagePrincipal: TpagePrincipal
           Padding.Right = 5
           Padding.Bottom = 10
           TabOrder = 2
-          ExplicitLeft = 370
           object Shape3: TShape
             Left = 5
             Top = 10
@@ -216,7 +213,6 @@ object pagePrincipal: TpagePrincipal
           Padding.Right = 5
           Padding.Bottom = 10
           TabOrder = 3
-          ExplicitLeft = 565
           object Shape4: TShape
             Left = 5
             Top = 10
@@ -262,7 +258,6 @@ object pagePrincipal: TpagePrincipal
           Padding.Right = 5
           Padding.Bottom = 10
           TabOrder = 4
-          ExplicitLeft = 745
           object Shape5: TShape
             Left = 5
             Top = 10
@@ -330,6 +325,7 @@ object pagePrincipal: TpagePrincipal
             Align = alClient
             Caption = 'Mais Fun'#231#245'es'
             Flat = True
+            OnClick = btnMaisFuncoesClick
             ExplicitLeft = 3
             ExplicitTop = 6
             ExplicitWidth = 175
@@ -344,8 +340,6 @@ object pagePrincipal: TpagePrincipal
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 2
-        ExplicitWidth = 1116
-        ExplicitHeight = 581
         object pnlOperacoes: TPanel
           Left = 766
           Top = 0
@@ -356,8 +350,6 @@ object pagePrincipal: TpagePrincipal
           Padding.Top = 5
           Padding.Bottom = 20
           TabOrder = 0
-          ExplicitLeft = 716
-          ExplicitHeight = 581
           object pnlTotalCompra: TPanel
             Left = 0
             Top = 492
@@ -366,7 +358,6 @@ object pagePrincipal: TpagePrincipal
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 0
-            ExplicitTop = 491
             object Label1: TLabel
               AlignWithMargins = True
               Left = 3
@@ -434,7 +425,6 @@ object pagePrincipal: TpagePrincipal
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 1
-            ExplicitTop = 421
             object Label3: TLabel
               AlignWithMargins = True
               Left = 3
@@ -502,7 +492,6 @@ object pagePrincipal: TpagePrincipal
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 2
-            ExplicitTop = 351
             object lblQuantidade: TLabel
               AlignWithMargins = True
               Left = 3
@@ -572,7 +561,6 @@ object pagePrincipal: TpagePrincipal
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 3
-            ExplicitTop = 281
             object Label6: TLabel
               AlignWithMargins = True
               Left = 3
@@ -640,7 +628,6 @@ object pagePrincipal: TpagePrincipal
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 4
-            ExplicitTop = 211
             object Label4: TLabel
               AlignWithMargins = True
               Left = 3
@@ -714,7 +701,6 @@ object pagePrincipal: TpagePrincipal
             Padding.Right = 120
             Padding.Bottom = 10
             TabOrder = 5
-            ExplicitHeight = 206
             object imgProduto: TImage
               Left = 120
               Top = 10
@@ -741,8 +727,6 @@ object pagePrincipal: TpagePrincipal
           Padding.Right = 5
           Padding.Bottom = 5
           TabOrder = 1
-          ExplicitWidth = 716
-          ExplicitHeight = 581
           object gridProdutos: TDBGrid
             Left = 5
             Top = 5
@@ -844,6 +828,202 @@ object pagePrincipal: TpagePrincipal
                 Visible = True
               end>
           end
+        end
+      end
+      object SplitViewFuncoes: TSplitView
+        Left = 1166
+        Top = 49
+        Width = 0
+        Height = 582
+        AnimationDelay = 0
+        DisplayMode = svmOverlay
+        Opened = False
+        OpenedWidth = 200
+        Placement = svpRight
+        TabOrder = 3
+        UseAnimation = False
+        object Panel1: TPanel
+          Left = 0
+          Top = 0
+          Width = 0
+          Height = 582
+          Align = alClient
+          BevelOuter = bvNone
+          Color = clScrollBar
+          ParentBackground = False
+          TabOrder = 0
+          object Panel2: TPanel
+            Left = 0
+            Top = 164
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Desconto Item (F11)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            object Shape12: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 0
+              ExplicitWidth = 200
+            end
+          end
+          object Panel3: TPanel
+            Left = 0
+            Top = 123
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Multiplicar (*)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+            object Shape13: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 0
+              ExplicitWidth = 200
+            end
+          end
+          object Panel4: TPanel
+            Left = 0
+            Top = 82
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Fechar Venda (F7)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            object Shape14: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 0
+              ExplicitWidth = 200
+            end
+          end
+          object Panel5: TPanel
+            Left = 0
+            Top = 41
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Nova Venda (F3)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+            object Shape15: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 0
+              ExplicitWidth = 200
+            end
+          end
+          object Panel6: TPanel
+            Left = 0
+            Top = 0
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Informar CPF (F9)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 4
+            object Shape16: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 0
+              ExplicitWidth = 200
+            end
+          end
+          object Panel7: TPanel
+            Left = 0
+            Top = 205
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Suprimento/Sangria (Ctrl + F4)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 5
+            object Shape17: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 0
+              ExplicitWidth = 200
+            end
+          end
+        end
+      end
+      object SplitViewPagamentos: TSplitView
+        Left = 1166
+        Top = 49
+        Width = 0
+        Height = 582
+        AnimationDelay = 10
+        DisplayMode = svmOverlay
+        Opened = False
+        OpenedWidth = 840
+        Placement = svpRight
+        TabOrder = 5
+        object pnlPag: TPanel
+          Left = 0
+          Top = 0
+          Width = 0
+          Height = 582
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 0
+          ExplicitWidth = 840
         end
       end
     end
