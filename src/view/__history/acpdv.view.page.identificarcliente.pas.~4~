@@ -1,0 +1,55 @@
+unit acpdv.view.page.identificarcliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
+  Vcl.Imaging.pngimage;
+
+type
+  TPageIdentficarCliente = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Shape1: TShape;
+    pnlCPFCNPJ: TPanel;
+    Label1: TLabel;
+    Shape2: TShape;
+    edtCPFCNPJ: TEdit;
+    Panel3: TPanel;
+    Label2: TLabel;
+    Shape3: TShape;
+    edtNome: TEdit;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    Shape4: TShape;
+    Panel6: TPanel;
+    Panel7: TPanel;
+    Image1: TImage;
+    Panel8: TPanel;
+    Panel9: TPanel;
+    Shape5: TShape;
+    Panel10: TPanel;
+    Panel11: TPanel;
+    Image2: TImage;
+    Panel12: TPanel;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  PageIdentficarCliente: TPageIdentficarCliente;
+
+implementation
+
+{$R *.dfm}
+
+procedure TPageIdentficarCliente.FormShow(Sender: TObject);
+begin
+  edtCPFCNPJ.SetFocus;
+end;
+
+end.

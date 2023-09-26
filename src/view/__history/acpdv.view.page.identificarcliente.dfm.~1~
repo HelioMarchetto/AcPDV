@@ -1,0 +1,16 @@
+object PageIdentficarCliente: TPageIdentficarCliente
+  Left = 0
+  Top = 0
+  AlphaBlend = True
+  AlphaBlendValue = 230
+  Caption = 'PageIdentficarCliente'
+  ClientHeight = 671
+  ClientWidth = 1174
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+end

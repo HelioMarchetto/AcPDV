@@ -11,7 +11,6 @@ object pagePagamentos: TpagePagamentos
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OnShow = FormShow
   TextHeight = 15
   object pnlContainer: TPanel
     Left = 0
@@ -21,7 +20,6 @@ object pagePagamentos: TpagePagamentos
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitHeight = 617
     object pnlFormasPagamento: TPanel
       Left = 273
       Top = 0
@@ -32,7 +30,6 @@ object pagePagamentos: TpagePagamentos
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      ExplicitHeight = 617
       object Panel13: TPanel
         Left = 0
         Top = 0
@@ -58,7 +55,6 @@ object pagePagamentos: TpagePagamentos
           Padding.Right = 10
           ParentBackground = False
           TabOrder = 0
-          ExplicitTop = 59
           object Shape2: TShape
             Left = 10
             Top = 0
@@ -84,14 +80,13 @@ object pagePagamentos: TpagePagamentos
           Caption = 'Forma de Pagamentos'
           Color = cl3DLight
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clGrayText
+          Font.Color = cl3DDkShadow
           Font.Height = -16
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentBackground = False
           ParentFont = False
           TabOrder = 1
-          ExplicitTop = 19
         end
       end
       object Panel16: TPanel
@@ -108,9 +103,6 @@ object pagePagamentos: TpagePagamentos
         Padding.Bottom = 10
         ParentBackground = False
         TabOrder = 1
-        ExplicitLeft = 6
-        ExplicitTop = 101
-        ExplicitHeight = 517
         object Panel17: TPanel
           Left = 30
           Top = 5
@@ -121,17 +113,14 @@ object pagePagamentos: TpagePagamentos
           BevelOuter = bvNone
           Caption = 'Escolha uma forma de pagamento'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clGrayText
+          Font.Color = cl3DDkShadow
           Font.Height = -15
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
           TabOrder = 0
-          ExplicitLeft = 112
-          ExplicitTop = 96
-          ExplicitWidth = 185
         end
-        object Panel18: TPanel
+        object pnlBotoesPagamentos: TPanel
           Left = 30
           Top = 46
           Width = 507
@@ -153,13 +142,13 @@ object pagePagamentos: TpagePagamentos
             Align = alLeft
             BevelOuter = bvNone
             TabOrder = 0
-            ExplicitLeft = 0
-            object Shape3: TShape
+            object ShapeDinheiro: TShape
               Left = 0
               Top = 0
               Width = 150
               Height = 80
               Align = alClient
+              Pen.Color = clYellow
               Pen.Style = psClear
               Shape = stRoundRect
               ExplicitLeft = 56
@@ -177,11 +166,7 @@ object pagePagamentos: TpagePagamentos
               Color = clWhite
               ParentBackground = False
               TabOrder = 0
-              ExplicitLeft = 56
-              ExplicitTop = 32
-              ExplicitWidth = 185
-              ExplicitHeight = 41
-              object Panel21: TPanel
+              object pnlDinheiro: TPanel
                 Left = 0
                 Top = 0
                 Width = 150
@@ -189,6 +174,7 @@ object pagePagamentos: TpagePagamentos
                 Align = alTop
                 BevelOuter = bvNone
                 TabOrder = 0
+                OnClick = pnlDinheiroClick
                 object Image2: TImage
                   AlignWithMargins = True
                   Left = 50
@@ -492,10 +478,6 @@ object pagePagamentos: TpagePagamentos
                 Font.Style = []
                 ParentFont = False
                 TabOrder = 1
-                ExplicitLeft = 72
-                ExplicitTop = 64
-                ExplicitWidth = 185
-                ExplicitHeight = 41
               end
             end
           end
@@ -512,13 +494,13 @@ object pagePagamentos: TpagePagamentos
             Align = alLeft
             BevelOuter = bvNone
             TabOrder = 1
-            ExplicitLeft = 0
-            object Shape4: TShape
+            object ShapePix: TShape
               Left = 0
               Top = 0
               Width = 150
               Height = 80
               Align = alClient
+              Pen.Color = clYellow
               Pen.Style = psClear
               Shape = stRoundRect
               ExplicitLeft = 56
@@ -536,7 +518,7 @@ object pagePagamentos: TpagePagamentos
               Color = clWhite
               ParentBackground = False
               TabOrder = 0
-              object Panel25: TPanel
+              object pnlPix: TPanel
                 Left = 0
                 Top = 0
                 Width = 150
@@ -544,6 +526,7 @@ object pagePagamentos: TpagePagamentos
                 Align = alTop
                 BevelOuter = bvNone
                 TabOrder = 0
+                OnClick = pnlPixClick
                 object Image3: TImage
                   AlignWithMargins = True
                   Left = 50
@@ -766,12 +749,13 @@ object pagePagamentos: TpagePagamentos
             Align = alLeft
             BevelOuter = bvNone
             TabOrder = 2
-            object Shape5: TShape
+            object ShapeCartao: TShape
               Left = 0
               Top = 0
               Width = 150
               Height = 80
               Align = alClient
+              Pen.Color = clYellow
               Pen.Style = psClear
               Shape = stRoundRect
               ExplicitLeft = 56
@@ -789,7 +773,7 @@ object pagePagamentos: TpagePagamentos
               Color = clWhite
               ParentBackground = False
               TabOrder = 0
-              object Panel29: TPanel
+              object pnlCartao: TPanel
                 Left = 0
                 Top = 0
                 Width = 150
@@ -797,6 +781,7 @@ object pagePagamentos: TpagePagamentos
                 Align = alTop
                 BevelOuter = bvNone
                 TabOrder = 0
+                OnClick = pnlCartaoClick
                 object Image4: TImage
                   AlignWithMargins = True
                   Left = 50
@@ -1027,7 +1012,6 @@ object pagePagamentos: TpagePagamentos
           BevelOuter = bvNone
           Padding.Top = 20
           TabOrder = 2
-          ExplicitTop = 141
           object Panel32: TPanel
             AlignWithMargins = True
             Left = 0
@@ -1043,8 +1027,6 @@ object pagePagamentos: TpagePagamentos
             Color = clActiveBorder
             ParentBackground = False
             TabOrder = 0
-            ExplicitLeft = 30
-            ExplicitTop = 59
             object Shape6: TShape
               Left = 0
               Top = 0
@@ -1077,7 +1059,6 @@ object pagePagamentos: TpagePagamentos
       Padding.Bottom = 50
       ParentBackground = False
       TabOrder = 1
-      ExplicitHeight = 617
       object Panel1: TPanel
         Left = 20
         Top = 35
@@ -1109,7 +1090,6 @@ object pagePagamentos: TpagePagamentos
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitHeight = 386
         object Panel4: TPanel
           Left = 0
           Top = 0
@@ -1750,7 +1730,6 @@ object pagePagamentos: TpagePagamentos
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitHeight = 233
           object Panel10: TPanel
             AlignWithMargins = True
             Left = 0
@@ -1907,7 +1886,6 @@ object pagePagamentos: TpagePagamentos
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 2
-        ExplicitTop = 512
         object Panel3: TPanel
           Left = 0
           Top = 14

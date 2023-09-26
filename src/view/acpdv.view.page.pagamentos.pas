@@ -51,31 +51,34 @@ type
     Panel15: TPanel;
     Panel16: TPanel;
     Panel17: TPanel;
-    Panel18: TPanel;
+    pnlBotoesPagamentos: TPanel;
     Panel19: TPanel;
-    Shape3: TShape;
+    ShapeDinheiro: TShape;
     Panel20: TPanel;
-    Panel21: TPanel;
+    pnlDinheiro: TPanel;
     Panel22: TPanel;
     Image2: TImage;
     Panel23: TPanel;
-    Shape4: TShape;
+    ShapePix: TShape;
     Panel24: TPanel;
-    Panel25: TPanel;
+    pnlPix: TPanel;
     Image3: TImage;
     Panel26: TPanel;
     Panel27: TPanel;
-    Shape5: TShape;
+    ShapeCartao: TShape;
     Panel28: TPanel;
-    Panel29: TPanel;
+    pnlCartao: TPanel;
     Image4: TImage;
     Panel30: TPanel;
     pnlContainerPg: TPanel;
     Panel32: TPanel;
     Shape6: TShape;
-    procedure FormShow(Sender: TObject);
+    procedure pnlPixClick(Sender: TObject);
+    procedure pnlCartaoClick(Sender: TObject);
+    procedure pnlDinheiroClick(Sender: TObject);
   private
-    { Private declarations }
+    { Private declarations}
+    procedure SetClick (Shape: TShape; Panel: TPanel);
   public
     { Public declarations }
   end;
@@ -87,15 +90,47 @@ implementation
 
 {$R *.dfm}
 
-uses acpdv.view.page.pix;
+uses acpdv.view.page.pix, acpdv.view.page.dinheiro, acpdv.view.page.cartao;
 
-procedure TpagePagamentos.FormShow(Sender: TObject);
+procedure TpagePagamentos.pnlCartaoClick(Sender: TObject);
+begin
+  TFrameCartao.New(Self).Alinhamento(alClient).Embed(pnlContainerPg);
+  SetClick(ShapeCartao, pnlBotoesPagamentos);
+end;
+
+procedure TpagePagamentos.pnlDinheiroClick(Sender: TObject);
+var
+  LFrame: TFrameDinheiro;
+begin
+  LFrame := TFrameDinheiro.Create(nil);
+  LFrame.Align := alClient;
+  LFrame.Parent := pnlContainerPg;
+  LFrame.edtRecebido.SetFocus;
+
+  SetClick(ShapeDinheiro, pnlBotoesPagamentos);
+end;
+
+procedure TpagePagamentos.pnlPixClick(Sender: TObject);
 var
   LFrame : TFramePix;
 begin
   LFrame := TFramePix.Create(nil);
   LFrame.Align := alClient;
   LFrame.Parent := pnlContainerPg;
+
+  SetClick(ShapePix, pnlBotoesPagamentos);
+end;
+
+procedure TpagePagamentos.SetClick(Shape: TShape; Panel: TPanel);
+begin
+  ShapeCartao.Pen.Style := psClear;
+  ShapePix.Pen.Style := psClear;
+  ShapeDinheiro.Pen.Style := psClear;
+
+  Shape.Pen.Style := psSolid;
+
+  Panel.Visible := False;
+  Panel.Visible := True;
 end;
 
 end.

@@ -1002,6 +1002,33 @@ object pagePrincipal: TpagePrincipal
               ExplicitWidth = 200
             end
           end
+          object Panel8: TPanel
+            Left = 0
+            Top = 246
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Informar Cliente (Ctrl)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 6
+            ExplicitTop = 8
+            ExplicitWidth = 200
+            object Shape18: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 0
+              ExplicitWidth = 200
+            end
+          end
         end
       end
       object SplitViewPagamentos: TSplitView
@@ -1023,7 +1050,6 @@ object pagePrincipal: TpagePrincipal
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitWidth = 840
         end
       end
     end

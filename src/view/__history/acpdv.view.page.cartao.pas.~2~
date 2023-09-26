@@ -1,0 +1,36 @@
+unit acpdv.view.page.cartao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage;
+
+type
+  TFrameCartao = class(TFrame)
+    pnlContainerCartao: TPanel;
+    pnlBotoesPagamentos: TPanel;
+    Panel23: TPanel;
+    ShapeDebito: TShape;
+    Panel24: TPanel;
+    pnlPix: TPanel;
+    Image3: TImage;
+    Panel26: TPanel;
+    Panel27: TPanel;
+    ShapeCartao: TShape;
+    Panel28: TPanel;
+    pnlCartao: TPanel;
+    Image4: TImage;
+    Panel30: TPanel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+implementation
+
+{$R *.dfm}
+
+end.

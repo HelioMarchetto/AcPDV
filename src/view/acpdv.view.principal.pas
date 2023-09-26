@@ -75,6 +75,8 @@ type
     Shape17: TShape;
     SplitViewPagamentos: TSplitView;
     pnlPag: TPanel;
+    Panel8: TPanel;
+    Shape18: TShape;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -93,7 +95,7 @@ var
 implementation
 {$R *.dfm}
 
-uses acpdv.view.page.pagamentos;
+uses acpdv.view.page.pagamentos, acpdv.view.page.identificarcliente;
 procedure TpagePrincipal.btnMaisFuncoesClick(Sender: TObject);
 begin
   SplitViewAction(SplitViewFuncoes);
@@ -126,6 +128,17 @@ begin
       lPagamentos.Parent := pnlPag;
       lPagamentos.Show;
       SplitViewAction(SplitViewPagamentos);
+    end;
+    VK_CONTROL: begin
+      TPageIdentficarCliente.New(Self)
+      .Embed(pnlMaster)
+      .Show;
+    end;
+    VK_F9: begin
+      TPageIdentficarCliente.New(Self)
+      .IdentificarCPF
+      .Embed(pnlMaster)
+      .Show;
     end;
   end;
 end;
