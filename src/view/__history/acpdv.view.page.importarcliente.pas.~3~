@@ -1,0 +1,40 @@
+unit acpdv.view.page.importarcliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons,
+  Vcl.Imaging.pngimage, Data.DB, Vcl.StdCtrls, Vcl.WinXCtrls, Vcl.Grids,
+  Vcl.DBGrids;
+
+type
+  TpageImportarCliente = class(TForm)
+    pnlContainer: TPanel;
+    pnlTop: TPanel;
+    pnlInfo: TPanel;
+    Panel1: TPanel;
+    Image1: TImage;
+    btnSair: TSpeedButton;
+    Panel2: TPanel;
+    Image2: TImage;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    DBGrid1: TDBGrid;
+    Button1: TButton;
+    Shape1: TShape;
+    edtPesquisar: TSearchBox;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  pageImportarCliente: TpageImportarCliente;
+
+implementation
+
+{$R *.dfm}
+
+end.

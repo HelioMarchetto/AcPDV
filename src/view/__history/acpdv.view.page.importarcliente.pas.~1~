@@ -1,0 +1,27 @@
+unit acpdv.view.page.importarcliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls;
+
+type
+  TpageImportarCliente = class(TForm)
+    pnlContainer: TPanel;
+    pnlTop: TPanel;
+    pnlInfo: TPanel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  pageImportarCliente: TpageImportarCliente;
+
+implementation
+
+{$R *.dfm}
+
+end.

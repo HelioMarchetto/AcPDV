@@ -1,0 +1,50 @@
+object pageImportarCliente: TpageImportarCliente
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  Caption = 'pageImportarCliente'
+  ClientHeight = 650
+  ClientWidth = 1000
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object pnlContainer: TPanel
+    Left = 0
+    Top = 0
+    Width = 1000
+    Height = 650
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitLeft = 504
+    ExplicitTop = 328
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object pnlTop: TPanel
+      Left = 0
+      Top = 0
+      Width = 1000
+      Height = 57
+      Align = alTop
+      BevelOuter = bvNone
+      TabOrder = 0
+    end
+    object pnlInfo: TPanel
+      Left = 0
+      Top = 57
+      Width = 1000
+      Height = 593
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 1
+      ExplicitLeft = 224
+      ExplicitTop = 392
+      ExplicitWidth = 185
+      ExplicitHeight = 41
+    end
+  end
+end

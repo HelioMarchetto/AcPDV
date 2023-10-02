@@ -2,30 +2,33 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2023/08/22 20:54:41.000.484,=C:\Users\NETO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023/08/22 20:55:39.000.247,C:\Users\NETO\Documents\Embarcadero\Studio\Projects\ACPDV.dproj=C:\Users\NETO\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2023/08/22 20:56:51.000.567,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.principal.pas=C:\Users\NETO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023/08/22 20:56:51.000.567,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.principal.dfm=C:\Users\NETO\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2023/08/22 20:57:05.000.387,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\ACPDV.dproj=C:\Users\NETO\Documents\Embarcadero\Studio\Projects\ACPDV.dproj</Transaction>
+    <Transaction>2023/08/22 20:55:39.000.247,C:\Users\NETO\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\NETO\Documents\Embarcadero\Studio\Projects\ACPDV.dproj</Transaction>
+    <Transaction>2023/08/22 20:56:51.000.567,C:\Users\NETO\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.principal.dfm</Transaction>
+    <Transaction>2023/08/22 20:56:51.000.567,C:\Users\NETO\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.principal.pas</Transaction>
+    <Transaction>2023/08/22 20:57:05.000.387,C:\Users\NETO\Documents\Embarcadero\Studio\Projects\ACPDV.dproj=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\ACPDV.dproj</Transaction>
     <Transaction>2023/09/01 20:46:09.000.761,=C:\Users\NETO\Desktop\AcPDV-main\src\view\acpdv.view.page.login.pas</Transaction>
     <Transaction>2023/09/01 21:02:17.000.413,=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
-    <Transaction>2023/09/01 21:03:40.000.149,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\Componentes\acpd.view.componente.Transparencia.dfm</Transaction>
-    <Transaction>2023/09/01 21:03:40.000.149,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\Componentes\acpd.view.componente.Transparencia.pas</Transaction>
-    <Transaction>2023/09/01 21:03:58.000.851,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\Componentes\acpd.view.componente.Transparencia.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\Componentes\acpdv.view.componente.Transparencia.pas</Transaction>
-    <Transaction>2023/09/01 21:03:58.000.851,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\Componentes\acpd.view.componente.Transparencia.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\Componentes\acpdv.view.componente.Transparencia.dfm</Transaction>
+    <Transaction>2023/09/01 21:03:40.000.149,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\Componentes\acpd.view.componente.Transparencia.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
+    <Transaction>2023/09/01 21:03:40.000.149,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\Componentes\acpd.view.componente.Transparencia.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm</Transaction>
+    <Transaction>2023/09/01 21:03:58.000.851,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\Componentes\acpdv.view.componente.Transparencia.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\Componentes\acpd.view.componente.Transparencia.pas</Transaction>
+    <Transaction>2023/09/01 21:03:58.000.851,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\Componentes\acpdv.view.componente.Transparencia.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\Componentes\acpd.view.componente.Transparencia.dfm</Transaction>
     <Transaction>2023/09/06 21:22:03.000.919,=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
-    <Transaction>2023/09/06 21:26:39.000.581,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.pagamentos.dfm</Transaction>
-    <Transaction>2023/09/06 21:26:39.000.581,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.pagamentos.pas</Transaction>
+    <Transaction>2023/09/06 21:26:39.000.581,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.pagamentos.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm</Transaction>
+    <Transaction>2023/09/06 21:26:39.000.581,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.pagamentos.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
     <Transaction>2023/09/13 21:11:07.000.445,=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
-    <Transaction>2023/09/13 21:14:19.000.053,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.pix.dfm</Transaction>
-    <Transaction>2023/09/13 21:14:19.000.053,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.pix.pas</Transaction>
+    <Transaction>2023/09/13 21:14:19.000.053,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.pix.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
+    <Transaction>2023/09/13 21:14:19.000.053,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.pix.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm</Transaction>
     <Transaction>2023/09/18 20:38:50.000.792,=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
-    <Transaction>2023/09/18 20:40:06.000.483,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.dinheiro.pas</Transaction>
-    <Transaction>2023/09/18 20:40:06.000.483,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.dinheiro.dfm</Transaction>
+    <Transaction>2023/09/18 20:40:06.000.483,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.dinheiro.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm</Transaction>
+    <Transaction>2023/09/18 20:40:06.000.483,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.dinheiro.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
     <Transaction>2023/09/18 20:52:37.000.836,=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
-    <Transaction>2023/09/18 20:53:27.000.477,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.cartao.pas</Transaction>
-    <Transaction>2023/09/18 20:53:27.000.477,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.cartao.dfm</Transaction>
-    <Transaction>2023/09/25 20:46:52.348,=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
-    <Transaction>2023/09/25 20:48:01.990,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.identificarcliente.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm</Transaction>
-    <Transaction>2023/09/25 20:48:01.990,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.identificarcliente.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
+    <Transaction>2023/09/18 20:53:27.000.477,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.cartao.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
+    <Transaction>2023/09/18 20:53:27.000.477,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.cartao.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm</Transaction>
+    <Transaction>2023/09/25 20:46:52.000.348,=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
+    <Transaction>2023/09/25 20:48:01.000.990,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.identificarcliente.dfm</Transaction>
+    <Transaction>2023/09/25 20:48:01.000.990,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.identificarcliente.pas</Transaction>
+    <Transaction>2023/10/02 19:59:27.000.020,=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas</Transaction>
+    <Transaction>2023/10/02 20:02:13.000.862,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.pas=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.importarcliente.pas</Transaction>
+    <Transaction>2023/10/02 20:02:13.000.862,C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\Unit1.dfm=C:\Users\NETO\Desktop\Cursos\Academia do Codigo\PDV\src\view\acpdv.view.page.importarcliente.dfm</Transaction>
   </Transactions>
 </BorlandProject>

@@ -731,7 +731,7 @@ object pagePrincipal: TpagePrincipal
             Left = 5
             Top = 5
             Width = 756
-            Height = 572
+            Height = 531
             Align = alClient
             BorderStyle = bsNone
             Font.Charset = DEFAULT_CHARSET
@@ -827,6 +827,24 @@ object pagePrincipal: TpagePrincipal
                 Width = 87
                 Visible = True
               end>
+          end
+          object pnlIdentificaCliente: TPanel
+            Left = 5
+            Top = 536
+            Width = 756
+            Height = 41
+            Align = alBottom
+            BevelOuter = bvNone
+            Color = 7119398
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -15
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentBackground = False
+            ParentFont = False
+            TabOrder = 1
+            Visible = False
           end
         end
       end
@@ -1009,7 +1027,7 @@ object pagePrincipal: TpagePrincipal
             Height = 41
             Align = alTop
             BevelOuter = bvNone
-            Caption = 'Informar Cliente (Ctrl)'
+            Caption = 'Importar Cliente (Ctrl)'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -16
@@ -1017,8 +1035,6 @@ object pagePrincipal: TpagePrincipal
             Font.Style = []
             ParentFont = False
             TabOrder = 6
-            ExplicitTop = 8
-            ExplicitWidth = 200
             object Shape18: TShape
               Left = 0
               Top = 40

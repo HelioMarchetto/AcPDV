@@ -77,6 +77,7 @@ type
     pnlPag: TPanel;
     Panel8: TPanel;
     Shape18: TShape;
+    pnlIdentificaCliente: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -95,7 +96,8 @@ var
 implementation
 {$R *.dfm}
 
-uses acpdv.view.page.pagamentos, acpdv.view.page.identificarcliente;
+uses acpdv.view.page.pagamentos, acpdv.view.page.identificarcliente,
+  acpdv.view.page.importarcliente;
 procedure TpagePrincipal.btnMaisFuncoesClick(Sender: TObject);
 begin
   SplitViewAction(SplitViewFuncoes);
@@ -130,14 +132,26 @@ begin
       SplitViewAction(SplitViewPagamentos);
     end;
     VK_CONTROL: begin
-      TPageIdentficarCliente.New(Self)
-      .Embed(pnlMaster)
-      .Show;
+      TpageImportarCliente.New(Self)
+      .Embed(pnlMaster).Show;
     end;
     VK_F9: begin
       TPageIdentficarCliente.New(Self)
       .IdentificarCPF
       .Embed(pnlMaster)
+      .IdentificarClient(procedure (aCPF, aCliente: String)
+      begin
+        if not aCliente.IsEmpty then
+          aCliente := 'Cliente: ' + aCliente;
+        if not aCPF.IsEmpty then
+          aCPF := 'CPF: ' + aCPF;
+
+        if ((not aCliente.IsEmpty) OR (not aCPF.IsEmpty)) then
+          begin
+            pnlIdentificaCliente.Visible := True;
+            pnlIdentificaCliente.Caption := aCliente + ' ' + aCPF;
+          end;
+      end)
       .Show;
     end;
   end;

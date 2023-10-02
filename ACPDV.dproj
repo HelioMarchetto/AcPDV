@@ -137,6 +137,10 @@
             <Form>PageIdentficarCliente</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\view\acpdv.view.page.importarcliente.pas">
+            <Form>pageImportarCliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
