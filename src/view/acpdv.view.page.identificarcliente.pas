@@ -36,6 +36,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure Panel7Click(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     FProc: TProc<string, string>;
   public
@@ -81,6 +82,19 @@ begin
   if Assigned(FProc) then
     FProc(edtCPFCNPJ.Text, edtNome.Text);
   Self.Close;
+end;
+
+procedure TPageIdentficarCliente.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  case Key of
+    VK_F2: ShowMessage('Pesquisa cliente PageIdentificarCliente');
+    VK_F5: Panel7Click(Sender);
+    VK_ESCAPE: begin
+      Self.Close;
+      Self.DisposeOf;
+    end;
+  end;
 end;
 
 procedure TPageIdentficarCliente.FormResize(Sender: TObject);

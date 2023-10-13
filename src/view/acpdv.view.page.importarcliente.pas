@@ -25,6 +25,7 @@ type
     Shape1: TShape;
     edtPesquisar: TSearchBox;
     procedure btnSairClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     FProc : TProc<TObject>;
   public
@@ -60,6 +61,16 @@ function TpageImportarCliente.Embed(Value: TWinControl): TpageImportarCliente;
 begin
   Result := Self;
   Self.Parent := Value;
+end;
+
+procedure TpageImportarCliente.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_ESCAPE then
+  begin
+    Self.Close;
+    Self.DisposeOf;
+  end;
 end;
 
 function TpageImportarCliente.Image(Value: String): TpageImportarCliente;

@@ -12,6 +12,8 @@ object pageImportarCliente: TpageImportarCliente
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
+  OnKeyDown = FormKeyDown
   TextHeight = 15
   object pnlContainer: TPanel
     Left = 0
@@ -186,7 +188,6 @@ object pageImportarCliente: TpageImportarCliente
         Font.Style = []
         ParentFont = False
         TabOrder = 1
-        ExplicitHeight = 50
         object imgCliente: TImage
           AlignWithMargins = True
           Left = 5
@@ -707,8 +708,6 @@ object pageImportarCliente: TpageImportarCliente
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitTop = 50
-      ExplicitHeight = 600
       object Panel3: TPanel
         Left = 0
         Top = 0
@@ -783,7 +782,6 @@ object pageImportarCliente: TpageImportarCliente
         Padding.Right = 5
         Padding.Bottom = 5
         TabOrder = 1
-        ExplicitHeight = 550
         object DBGrid1: TDBGrid
           Left = 5
           Top = 5

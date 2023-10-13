@@ -13,6 +13,8 @@ object PageIdentficarCliente: TPageIdentficarCliente
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
+  OnKeyDown = FormKeyDown
   OnResize = FormResize
   OnShow = FormShow
   TextHeight = 15

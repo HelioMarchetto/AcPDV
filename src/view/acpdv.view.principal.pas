@@ -85,6 +85,7 @@ type
     procedure btnMaisFuncoesClick(Sender: TObject);
   private
     FLogin: TPageLogin;
+    FF6: Integer;
     procedure MontarBotoes;
     procedure SplitViewAction(Value: TSplitView);
     { Private declarations }
@@ -117,12 +118,32 @@ procedure TpagePrincipal.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 var
   lPagamentos : TpagePagamentos;
+  lKeyEvent : TKeyEvent;
+  I: Integer;
 begin
+  for I := Pred (pnlMaster.ControlCount) downto 0 do
+  begin
+    if (pnlMaster.Controls[I] is TForm) then
+    begin
+      if not (Shift = [ssCtrl] ) then
+        begin
+
+        if TForm(pnlMaster.Controls[I]).KeyPreview then
+          lKeyEvent := TForm(pnlMaster.Controls[I]).OnKeyDown;
+
+        if Assigned(lKeyEvent) then
+          lKeyEvent(Sender, Key, Shift);
+
+        exit;
+      end;
+    end;
+  end;
+
   case Key of
-    VK_ESCAPE: ShowMessage('Cancelar Operação');
+    VK_ESCAPE: Self.Close;
     VK_F4: ShowMessage('Consultar Preço');
     VK_F2: ShowMessage('Abrir Caixa');
-    VK_F6: ShowMessage('Cancelar Venda');
+    VK_F6: ShowMessage('Cancelar Item');
     VK_F5: ShowMessage('Cancelar Item');
     VK_F12: btnMaisFuncoesClick(Sender);
     VK_F7: begin
@@ -131,7 +152,7 @@ begin
       lPagamentos.Show;
       SplitViewAction(SplitViewPagamentos);
     end;
-    VK_CONTROL: begin
+    VK_F1: begin
       TpageImportarCliente.New(Self)
       .Embed(pnlMaster).Show;
     end;
@@ -166,7 +187,7 @@ end;
 
 procedure TpagePrincipal.MontarBotoes;
 begin
-  btnCancelarOp.Caption := 'Cancelar Operação ' + ''#13'' + ' (ESC)';
+  btnCancelarOp.Caption := 'Cancelar Operação ' + ''#13'' + ' (F10)';
   btnConsultarPreco.Caption := 'Consultar Preço ' + ''#13'' + ' (F4)';
   btnAbrirCaixa.Caption := 'Abrir Caixa ' + ''#13'' + ' (F2)';
   btnCancelarVenda.Caption := 'Cancelar Venda ' + ''#13'' + ' (F6)';
