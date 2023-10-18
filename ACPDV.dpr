@@ -9,7 +9,8 @@ uses
   acpdv.view.page.dinheiro in 'src\view\acpdv.view.page.dinheiro.pas' {FrameDinheiro: TFrame},
   acpdv.view.page.cartao in 'src\view\acpdv.view.page.cartao.pas' {FrameCartao: TFrame},
   acpdv.view.page.identificarcliente in 'src\view\acpdv.view.page.identificarcliente.pas' {PageIdentficarCliente},
-  acpdv.view.page.importarcliente in 'src\view\acpdv.view.page.importarcliente.pas' {pageImportarCliente};
+  acpdv.view.page.importarcliente in 'src\view\acpdv.view.page.importarcliente.pas' {pageImportarCliente},
+  acpdv.view.abrircaixa in 'src\view\acpdv.view.abrircaixa.pas' {pageAbrirCaixa};
 
 {$R *.res}
 begin

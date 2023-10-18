@@ -141,6 +141,10 @@
             <Form>pageImportarCliente</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\view\acpdv.view.abrircaixa.pas">
+            <Form>pageAbrirCaixa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

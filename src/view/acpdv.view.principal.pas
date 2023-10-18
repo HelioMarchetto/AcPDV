@@ -85,7 +85,6 @@ type
     procedure btnMaisFuncoesClick(Sender: TObject);
   private
     FLogin: TPageLogin;
-    FF6: Integer;
     procedure MontarBotoes;
     procedure SplitViewAction(Value: TSplitView);
     { Private declarations }
@@ -98,7 +97,7 @@ implementation
 {$R *.dfm}
 
 uses acpdv.view.page.pagamentos, acpdv.view.page.identificarcliente,
-  acpdv.view.page.importarcliente;
+  acpdv.view.page.importarcliente, acpdv.view.abrircaixa;
 procedure TpagePrincipal.btnMaisFuncoesClick(Sender: TObject);
 begin
   SplitViewAction(SplitViewFuncoes);
@@ -142,7 +141,10 @@ begin
   case Key of
     VK_ESCAPE: Self.Close;
     VK_F4: ShowMessage('Consultar Preço');
-    VK_F2: ShowMessage('Abrir Caixa');
+    VK_F2: begin
+      TpageAbrirCaixa.New(Self)
+      .Embed(pnlMaster).Show;
+    end;
     VK_F6: ShowMessage('Cancelar Item');
     VK_F5: ShowMessage('Cancelar Item');
     VK_F12: btnMaisFuncoesClick(Sender);
