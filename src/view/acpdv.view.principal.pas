@@ -1,14 +1,39 @@
 unit acpdv.view.principal;
+
 interface
+
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Data.DB,
-  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, acpdv.view.page.login, Vcl.WinXCtrls;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.ExtCtrls,
+  Vcl.Buttons,
+  Data.DB,
+  Vcl.Grids,
+  Vcl.DBGrids,
+  Vcl.StdCtrls,
+  Vcl.Imaging.jpeg,
+  acpdv.view.page.login,
+  acpdv.model.dados,
+  Vcl.WinXCtrls,
+  acpdv.view.page.pagamento,
+  acpdv.view.page.identificarcliente,
+  acpdv.view.page.importarcliente,
+  acpdv.view.abrircaixa,
+  Vcl.Imaging.pngimage,
+  acpdv.model.caixa;
+
 type
-  TpagePrincipal = class(TForm)
+  Tpageprincipal = class(TForm)
     pnlContainer: TPanel;
     pnlTitle: TPanel;
-    pnlBottom: TPanel;
+    pnlButton: TPanel;
     pnlMain: TPanel;
     pnlOperacoes: TPanel;
     pnlGrid: TPanel;
@@ -35,30 +60,31 @@ type
     Label1: TLabel;
     Shape7: TShape;
     pnledtTotalCompra: TPanel;
-    Label2: TLabel;
+    lblTotalCompra: TLabel;
     pnlSubTotal: TPanel;
-    Label3: TLabel;
+    Label2: TLabel;
+    pnlEdtSubTotal: TPanel;
     Shape8: TShape;
-    pnledtSubTotal: TPanel;
     lblSubTotal: TLabel;
     pnlQuantidade: TPanel;
-    lblQuantidade: TLabel;
+    Label3: TLabel;
+    pnlEdtQuantidade: TPanel;
     Shape9: TShape;
-    pnledtQuantidade: TPanel;
     edtQuantidade: TEdit;
     pnlPreco: TPanel;
-    Label6: TLabel;
+    Label4: TLabel;
+    pnlEdtPreco: TPanel;
     Shape10: TShape;
-    pnledtPreco: TPanel;
     lblPreco: TLabel;
     pnlProduto: TPanel;
-    Label4: TLabel;
+    Label5: TLabel;
+    pnlEdtProduto: TPanel;
     Shape11: TShape;
-    pnledtProduto: TPanel;
     edtProduto: TEdit;
     pnlImgProduto: TPanel;
-    imgProduto: TImage;
+    ImageProduto: TImage;
     pnlMaster: TPanel;
+    dsItens: TDataSource;
     SplitViewFuncoes: TSplitView;
     Panel1: TPanel;
     Panel2: TPanel;
@@ -85,48 +111,78 @@ type
     procedure btnMaisFuncoesClick(Sender: TObject);
   private
     FLogin: TPageLogin;
+    FF6: Integer;
+    FCaixa: TCaixa;
     procedure MontarBotoes;
+
+    procedure FixarForm;
+
     procedure SplitViewAction(Value: TSplitView);
-    { Private declarations }
+    procedure AjustarCampos;
+    procedure VerificaCaixaFechadoAberto;
+    procedure InformacoesOperador;
   public
-    { Public declarations }
+
   end;
+
 var
-  pagePrincipal: TpagePrincipal;
+  pageprincipal: Tpageprincipal;
+
 implementation
+
 {$R *.dfm}
 
-uses acpdv.view.page.pagamentos, acpdv.view.page.identificarcliente,
-  acpdv.view.page.importarcliente, acpdv.view.abrircaixa;
-procedure TpagePrincipal.btnMaisFuncoesClick(Sender: TObject);
+procedure Tpageprincipal.AjustarCampos;
+begin
+  edtProduto.Text := '';
+  lblPreco.Caption := FormatCurr('"R$ ",0.00', 0);
+  edtQuantidade.Text := FormatFloat(',0.000', 0);
+  lblSubTotal.Caption := FormatCurr('"R$ ",0.00', 0);
+  lblTotalCompra.Caption := FormatCurr('"R$ ",0.00', 0);
+  dmDados.cdsItens.Active := false;
+  pnlTitle.SetFocus;
+end;
+
+procedure Tpageprincipal.btnMaisFuncoesClick(Sender: TObject);
 begin
   SplitViewAction(SplitViewFuncoes);
 end;
 
-procedure TpagePrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure Tpageprincipal.FixarForm;
 begin
-  FLogin.Free;
+  Self.WindowState := TWindowState.wsNormal;
+  Self.Position := poScreenCenter;
+  Self.Constraints.MaxHeight := Self.ClientHeight;
+  Self.Constraints.MinHeight := Self.ClientHeight;
+  Self.Constraints.MaxWidth := Self.ClientWidth;
+  Self.Constraints.MinWidth := Self.ClientWidth;
 end;
 
-procedure TpagePrincipal.FormCreate(Sender: TObject);
+procedure Tpageprincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
+  FCaixa.DisposeOf;
+end;
+
+procedure Tpageprincipal.FormCreate(Sender: TObject);
+begin
+  FixarForm;
   MontarBotoes;
 end;
 
-procedure TpagePrincipal.FormKeyDown(Sender: TObject; var Key: Word;
+procedure Tpageprincipal.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 var
-  lPagamentos : TpagePagamentos;
-  lKeyEvent : TKeyEvent;
+  lPagamentos: TPagePagamentos;
+  lKeyEvent: TKeyEvent;
   I: Integer;
 begin
-  for I := Pred (pnlMaster.ControlCount) downto 0 do
+
+  for I := Pred(pnlMaster.ControlCount) downto 0 do
   begin
     if (pnlMaster.Controls[I] is TForm) then
     begin
-      if not (Shift = [ssCtrl] ) then
-        begin
-
+      if not(Shift = [ssCtrl]) then
+      begin
         if TForm(pnlMaster.Controls[I]).KeyPreview then
           lKeyEvent := TForm(pnlMaster.Controls[I]).OnKeyDown;
 
@@ -139,67 +195,115 @@ begin
   end;
 
   case Key of
-    VK_ESCAPE: Self.Close;
-    VK_F4: ShowMessage('Consultar Preço');
+    VK_ESCAPE:
+      Self.Close;
+    VK_F4:
+      ShowMessage('Consultar Preço');
     VK_F2: begin
-      TpageAbrirCaixa.New(Self)
-      .Embed(pnlMaster).Show;
-    end;
-    VK_F6: ShowMessage('Cancelar Item');
-    VK_F5: ShowMessage('Cancelar Item');
-    VK_F12: btnMaisFuncoesClick(Sender);
-    VK_F7: begin
-      lPagamentos := TpagePagamentos.Create(nil);
-      lPagamentos.Parent := pnlPag;
-      lPagamentos.Show;
-      SplitViewAction(SplitViewPagamentos);
-    end;
-    VK_F1: begin
-      TpageImportarCliente.New(Self)
-      .Embed(pnlMaster).Show;
-    end;
-    VK_F9: begin
-      TPageIdentficarCliente.New(Self)
-      .IdentificarCPF
-      .Embed(pnlMaster)
-      .IdentificarClient(procedure (aCPF, aCliente: String)
-      begin
-        if not aCliente.IsEmpty then
-          aCliente := 'Cliente: ' + aCliente;
-        if not aCPF.IsEmpty then
-          aCPF := 'CPF: ' + aCPF;
-
-        if ((not aCliente.IsEmpty) OR (not aCPF.IsEmpty)) then
+        TPageAbrirCaixa.New(Self)
+          .Embed(pnlMaster)
+          .Informacoes(procedure (Value: TCaixa)
           begin
-            pnlIdentificaCliente.Visible := True;
-            pnlIdentificaCliente.Caption := aCliente + ' ' + aCPF;
-          end;
-      end)
-      .Show;
+            FCaixa.Id := Value.Id;
+            FCaixa.Caixa := Value.Caixa;
+            FCaixa.Turno := Value.Turno;
+            FCaixa.Aberto := Value.Aberto;
+            FCaixa.DataHoraAbertura := Value.DataHoraAbertura;
+            FCaixa.SaldoInicial := VAlue.SaldoInicial;
+            VerificaCaixaFechadoAberto;
+          end).Show;
     end;
+    VK_F6:
+      ShowMessage('Cancelar Venda');
+    VK_F5:
+      ShowMessage('Cancelar Item');
+    VK_F12:
+      btnMaisFuncoesClick(Sender);
+    VK_F7:
+      begin
+        lPagamentos := TPagePagamentos.Create(nil);
+        lPagamentos.Parent := pnlPag;
+        lPagamentos.Show;
+        SplitViewAction(SplitViewPagamentos);
+      end;
+    VK_F1:
+      begin
+        TPageImportarCliente.New(Self).Embed(pnlMaster).Show;
+      end;
+    VK_F9:
+      begin
+        TPageIdentificarCliente.New(Self).IdentificaCPF.Embed(pnlMaster)
+          .identificarcliente(
+          procedure(aCPF, aCliente: String)
+          begin
+            if not aCliente.IsEmpty then
+              aCliente := 'Cliente: ' + aCliente;
+            if not aCPF.IsEmpty then
+              aCPF := 'CPF: ' + aCPF;
+
+            if ((not aCliente.IsEmpty) or (not aCPF.IsEmpty)) then
+            begin
+              pnlIdentificaCliente.Visible := True;
+              pnlIdentificaCliente.Caption := aCliente + ' ' + aCPF;
+            end;
+          end).Show;
+      end;
   end;
 end;
 
-procedure TpagePrincipal.FormShow(Sender: TObject);
+procedure Tpageprincipal.FormShow(Sender: TObject);
 begin
-//  FLogin := TPageLogin.Create(nil);
-//  FLogin.Parent := pnlMaster;
-//  FLogin.Show;
+  TPageLogin.New(Self).Embed(pnlMaster).Informacao(
+    procedure(Value: String)
+    begin
+      if not Assigned(FCaixa) then
+        FCaixa := TCaixa.New;
+
+      FCaixa.Operador := Value;
+
+      VerificaCaixaFechadoAberto;
+    end).Show;
 end;
 
-procedure TpagePrincipal.MontarBotoes;
+procedure Tpageprincipal.InformacoesOperador;
+var
+  lCaption, lOperador: String;
+begin
+  lOperador := 'Caixa ' + FCaixa.Caixa.ToString + ' | Operador: '
+    + FCaixa.Operador + ' | Turno: ' + FCaixa.Turno.ToString;
+
+  lCaption := StringOfChar(' ', (255 - (Length(Self.Caption) + Length(lOperador))));
+  Self.Caption := Self.Caption + lCaption + lOperador;
+end;
+
+procedure Tpageprincipal.MontarBotoes;
 begin
   btnCancelarOp.Caption := 'Cancelar Operação ' + ''#13'' + ' (F10)';
-  btnConsultarPreco.Caption := 'Consultar Preço ' + ''#13'' + ' (F4)';
-  btnAbrirCaixa.Caption := 'Abrir Caixa ' + ''#13'' + ' (F2)';
-  btnCancelarVenda.Caption := 'Cancelar Venda ' + ''#13'' + ' (F6)';
-  btnCancelarItem.Caption := 'Cancelar Item ' + ''#13'' + ' (F5)';
-  btnMaisFuncoes.Caption := 'Mais Funções ' + ''#13'' + ' (F12)';
+  btnConsultarPreco.Caption := 'Consultar Preço' + ''#13'' + '(F4)';
+  btnAbrirCaixa.Caption := 'Abrir Caixa' + ''#13'' + '(F2)';
+  btnCancelarVenda.Caption := 'Cancelar Venda' + ''#13'' + '(F6)';
+  btnCancelarItem.Caption := 'Cancelar Item' + ''#13'' + '(F5)';
+  btnMaisFuncoes.Caption := 'Mais Funções' + ''#13'' + '(F12)';
 end;
 
-procedure TpagePrincipal.SplitViewAction(Value: TSplitView);
+procedure Tpageprincipal.SplitViewAction(Value: TSplitView);
 begin
   Value.Opened := not Value.Opened;
+end;
+
+procedure Tpageprincipal.VerificaCaixaFechadoAberto;
+begin
+  if not FCaixa.Aberto then
+  begin
+    pnlTitle.Caption := 'Caixa Fechado';
+    AjustarCampos;
+    Exit;
+  end;
+  pnlTitle.Caption := 'Caixa Aberto';
+
+  InformacoesOperador;
+
+  AjustarCampos;
 end;
 
 end.

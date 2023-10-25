@@ -3,25 +3,22 @@ object FrameDinheiro: TFrameDinheiro
   Top = 0
   Width = 507
   Height = 304
+  Align = alClient
   TabOrder = 0
-  object Panel1: TPanel
+  object pnlContainerDinheiro: TPanel
     Left = 0
     Top = 0
     Width = 507
     Height = 304
+    Margins.Top = 111
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 112
-    ExplicitTop = 96
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnlRecebido: TPanel
-      AlignWithMargins = True
-      Left = 56
-      Top = 64
+      Left = 41
+      Top = 130
       Width = 425
-      Height = 49
+      Height = 44
       Margins.Left = 41
       Margins.Top = 130
       Margins.Right = 41
@@ -31,32 +28,31 @@ object FrameDinheiro: TFrameDinheiro
       object Label1: TLabel
         Left = 0
         Top = 0
-        Width = 227
-        Height = 49
+        Width = 236
+        Height = 44
         Align = alLeft
         Caption = 'Total Recebido: '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = cl3DDkShadow
+        Font.Color = 6708056
         Font.Height = -33
-        Font.Name = 'Segoe UI'
+        Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = -16
         ExplicitHeight = 40
       end
       object edtRecebido: TEdit
-        Left = 227
+        Left = 236
         Top = 0
-        Width = 198
-        Height = 49
+        Width = 189
+        Height = 44
         Align = alClient
         Alignment = taRightJustify
         BorderStyle = bsNone
-        Color = clWhite
+        Color = clBtnFace
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = cl3DDkShadow
+        Font.Color = 6708056
         Font.Height = -33
-        Font.Name = 'Segoe UI'
+        Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
         TabOrder = 0

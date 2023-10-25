@@ -1,21 +1,28 @@
 program ACPDV;
+
 uses
   Vcl.Forms,
-  acpdv.view.principal in 'src\view\acpdv.view.principal.pas' {pagePrincipal},
+  acpdv.view.principal in 'src\view\acpdv.view.principal.pas' {pageprincipal},
   acpdv.view.page.login in 'src\view\acpdv.view.page.login.pas' {PageLogin},
-  acpdv.view.componente.Transparencia in 'src\view\Componentes\acpdv.view.componente.Transparencia.pas' {FundoTransparente},
-  acpdv.view.page.pagamentos in 'src\view\acpdv.view.page.pagamentos.pas' {pagePagamentos},
+  acpdv.model.dados in 'src\model\acpdv.model.dados.pas' {dmDados: TDataModule},
+  acpdv.view.page.pagamento in 'src\view\acpdv.view.page.pagamento.pas' {PagePagamentos},
   acpdv.view.page.pix in 'src\view\acpdv.view.page.pix.pas' {FramePix: TFrame},
   acpdv.view.page.dinheiro in 'src\view\acpdv.view.page.dinheiro.pas' {FrameDinheiro: TFrame},
   acpdv.view.page.cartao in 'src\view\acpdv.view.page.cartao.pas' {FrameCartao: TFrame},
-  acpdv.view.page.identificarcliente in 'src\view\acpdv.view.page.identificarcliente.pas' {PageIdentficarCliente},
-  acpdv.view.page.importarcliente in 'src\view\acpdv.view.page.importarcliente.pas' {pageImportarCliente},
-  acpdv.view.abrircaixa in 'src\view\acpdv.view.abrircaixa.pas' {pageAbrirCaixa};
+  acpdv.view.page.identificarcliente in 'src\view\acpdv.view.page.identificarcliente.pas' {PageIdentificarCliente},
+  acpdv.view.page.importarcliente in 'src\view\acpdv.view.page.importarcliente.pas' {PageImportarCliente},
+  acpdv.view.abrircaixa in 'src\view\acpdv.view.abrircaixa.pas' {PageAbrirCaixa},
+  acpdv.model.caixa in 'src\model\acpdv.model.caixa.pas',
+  acpdv.view.componente.Transparencia in 'src\view\Componentes\acpdv.view.componente.Transparencia.pas' {FundoTransparente};
 
 {$R *.res}
+
 begin
   Application.Initialize;
+  ReportMemoryLeaksOnShutdown := True;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TpagePrincipal, pagePrincipal);
+  Application.CreateForm(TdmDados, dmDados);
+  Application.CreateForm(Tpageprincipal, pageprincipal);
+  Application.CreateForm(TFundoTransparente, FundoTransparente);
   Application.Run;
 end.

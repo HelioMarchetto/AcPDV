@@ -3,19 +3,27 @@ unit acpdv.view.page.cartao;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
-  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.ExtCtrls,
   Vcl.Imaging.pngimage;
 
 type
   TFrameCartao = class(TFrame)
-    pnlContainerCartao: TPanel;
-    pnlBotoesPagamentos: TPanel;
-    Panel27: TPanel;
-    ShapeCartao: TShape;
-    Panel28: TPanel;
+    pnlCOntainerCartao: TPanel;
+    pnlListaPagamentos: TPanel;
     pnlCartao: TPanel;
-    Image4: TImage;
+    ShapeCartao: TShape;
+    Panel20: TPanel;
+    Panel21: TPanel;
+    Image2: TImage;
     Panel1: TPanel;
     Panel2: TPanel;
     Shape1: TShape;
@@ -27,7 +35,7 @@ type
     Shape2: TShape;
     Panel7: TPanel;
     Panel8: TPanel;
-    Image2: TImage;
+    Image4: TImage;
     Panel9: TPanel;
     Panel10: TPanel;
     Shape3: TShape;
@@ -47,7 +55,6 @@ type
   private
     { Private declarations }
   public
-    { Public declarations }
     class function New(AOwner: TComponent): TFrameCartao;
     function Alinhamento(Value: TAlign): TFrameCartao;
     function Embed(Value: TWinControl): TFrameCartao;
@@ -59,21 +66,21 @@ implementation
 
 { TFrameCartao }
 
-class function TFrameCartao.New(AOwner: TComponent): TFrameCartao;
-begin
-  Result := Self.Create(AOwner);
-end;
-
 function TFrameCartao.Alinhamento(Value: TAlign): TFrameCartao;
 begin
   Result := Self;
-  Self.Align := Value;
+  Self.Align := VAlue;
 end;
 
 function TFrameCartao.Embed(Value: TWinControl): TFrameCartao;
 begin
   Result := Self;
-  Self.Parent := Value;
+  Self.Parent := VAlue;
+end;
+
+class function TFrameCartao.New(AOwner: TComponent): TFrameCartao;
+begin
+  Result := Self.Create(Aowner);
 end;
 
 end.

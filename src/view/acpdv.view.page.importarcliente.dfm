@@ -1,20 +1,20 @@
-object pageImportarCliente: TpageImportarCliente
+object PageImportarCliente: TPageImportarCliente
   Left = 0
   Top = 0
   Align = alClient
   BorderStyle = bsNone
-  Caption = 'pageImportarCliente'
+  Caption = 'PageImportarCliente'
   ClientHeight = 650
   ClientWidth = 1000
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
-  Font.Name = 'Segoe UI'
+  Font.Height = -11
+  Font.Name = 'Tahoma'
   Font.Style = []
   KeyPreview = True
   OnKeyDown = FormKeyDown
-  TextHeight = 15
+  TextHeight = 13
   object pnlContainer: TPanel
     Left = 0
     Top = 0
@@ -155,8 +155,6 @@ object pageImportarCliente: TpageImportarCliente
             B6F6D7EB36DD689A8D00B254E04A1A3D82410D28F5E1F779FC4EDB0FABAA67FD
             D2D884565819FAFC8242E5FFF93258CCF69946FD0000000049454E44AE426082}
           Stretch = True
-          ExplicitWidth = 40
-          ExplicitHeight = 60
         end
         object btnSair: TSpeedButton
           Left = 0
@@ -175,7 +173,7 @@ object pageImportarCliente: TpageImportarCliente
       object pnlTitulo: TPanel
         Left = 0
         Top = 0
-        Width = 185
+        Width = 169
         Height = 60
         Align = alLeft
         Alignment = taRightJustify
@@ -183,12 +181,12 @@ object pageImportarCliente: TpageImportarCliente
         Caption = 'Lista de Clientes'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -17
-        Font.Name = 'Segoe UI'
+        Font.Height = -16
+        Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
         TabOrder = 1
-        object imgCliente: TImage
+        object ImageCliente: TImage
           AlignWithMargins = True
           Left = 5
           Top = 5
@@ -713,60 +711,70 @@ object pageImportarCliente: TpageImportarCliente
         Top = 0
         Width = 1000
         Height = 50
-        Margins.Bottom = 0
         Align = alTop
         BevelOuter = bvNone
         Padding.Left = 5
         Padding.Top = 5
         Padding.Right = 5
-        Padding.Bottom = 5
         TabOrder = 0
-        object Shape1: TShape
-          AlignWithMargins = True
-          Left = 5
-          Top = 5
-          Width = 880
-          Height = 40
-          Margins.Left = 0
-          Margins.Top = 0
-          Margins.Bottom = 0
-          Align = alClient
-          Pen.Style = psClear
-          Shape = stRoundRect
-          ExplicitLeft = 376
-          ExplicitTop = 40
-          ExplicitWidth = 65
-          ExplicitHeight = 65
-        end
         object Button1: TButton
-          Left = 888
+          Left = 880
           Top = 5
-          Width = 107
-          Height = 40
+          Width = 115
+          Height = 45
           Align = alRight
           Caption = 'Pesquisar (F2)'
-          TabOrder = 0
-        end
-        object edtPesquisar: TSearchBox
-          AlignWithMargins = True
-          Left = 10
-          Top = 17
-          Width = 873
-          Height = 18
-          Margins.Left = 5
-          Margins.Top = 12
-          Margins.Right = 5
-          Margins.Bottom = 10
-          Align = alClient
-          BorderStyle = bsNone
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = cl3DDkShadow
+          Font.Color = clWindowText
           Font.Height = -15
-          Font.Name = 'Segoe UI'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
+          TabOrder = 0
+        end
+        object Panel5: TPanel
+          Left = 5
+          Top = 5
+          Width = 875
+          Height = 45
+          Align = alClient
+          BevelOuter = bvNone
           TabOrder = 1
-          TextHint = 'Pesquisar Cliente'
+          object Shape1: TShape
+            AlignWithMargins = True
+            Left = 0
+            Top = 0
+            Width = 872
+            Height = 45
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Bottom = 0
+            Align = alClient
+            Pen.Style = psClear
+            Shape = stRoundRect
+            ExplicitLeft = 3
+          end
+          object edtPesquisar: TSearchBox
+            AlignWithMargins = True
+            Left = 5
+            Top = 12
+            Width = 865
+            Height = 23
+            Margins.Left = 5
+            Margins.Top = 12
+            Margins.Right = 5
+            Margins.Bottom = 10
+            Align = alClient
+            BorderStyle = bsNone
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 6708056
+            Font.Height = -15
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            TextHint = 'Pesquisar Cliente'
+          end
         end
       end
       object Panel4: TPanel
@@ -774,7 +782,6 @@ object pageImportarCliente: TpageImportarCliente
         Top = 50
         Width = 1000
         Height = 540
-        Margins.Top = 0
         Align = alClient
         BevelOuter = bvNone
         Padding.Left = 5
@@ -787,15 +794,14 @@ object pageImportarCliente: TpageImportarCliente
           Top = 5
           Width = 990
           Height = 530
-          Margins.Bottom = 0
           Align = alClient
           BorderStyle = bsNone
           Options = [dgTitles, dgColLines, dgRowLines, dgTabs, dgRowSelect]
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
-          TitleFont.Height = -12
-          TitleFont.Name = 'Segoe UI'
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
           TitleFont.Style = []
         end
       end

@@ -3,24 +3,33 @@ unit acpdv.view.page.identificarcliente;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.ExtCtrls,
+  Vcl.StdCtrls,
   Vcl.Imaging.pngimage;
 
 type
-  TPageIdentficarCliente = class(TForm)
+  TPageIdentificarCliente = class(TForm)
     pnlIdentificacaoCliente: TPanel;
     Panel2: TPanel;
     Shape1: TShape;
     pnlCPFCNPJ: TPanel;
     Label1: TLabel;
     Shape2: TShape;
-    edtCPFCNPJ: TEdit;
+    edtCPFCnpj: TEdit;
     pnlNome: TPanel;
     Label2: TLabel;
     Shape3: TShape;
     edtNome: TEdit;
-    pnlButtom: TPanel;
+    pnlButton: TPanel;
     Panel5: TPanel;
     Shape4: TShape;
     Panel6: TPanel;
@@ -31,78 +40,52 @@ type
     Shape5: TShape;
     Panel10: TPanel;
     Panel11: TPanel;
-    Image2: TImage;
+    Image4: TImage;
     Panel12: TPanel;
     procedure FormShow(Sender: TObject);
     procedure FormResize(Sender: TObject);
-    procedure Panel7Click(Sender: TObject);
+    procedure Panel11Click(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
-    FProc: TProc<string, string>;
+    FProc: TProc<String, String>;
   public
-    class function New(AoWner: TComponent): TPageIdentficarCliente;
-    function Embed(Value: TWinControl): TPageIdentficarCliente;
-    function IdentificarCPF: TPageIdentficarCliente;
-    function IdentificarClient(Value: TProc<String, String>): TPageIdentficarCliente;
+    class function New(AOWner: TComponent): TPageIdentificarCliente;
+    function Embed(Value: TWinControl): TPageIdentificarCliente;
+    function IdentificaCPF: TPageIdentificarCliente;
+    function identificarcliente(Value: TProc<String, String>)
+      : TPageIdentificarCliente;
   end;
 
 var
-  PageIdentficarCliente: TPageIdentficarCliente;
+  PageIdentificarCliente: TPageIdentificarCliente;
 
 implementation
 
 {$R *.dfm}
 
-function TPageIdentficarCliente.Embed(Value: TWinControl): TPageIdentficarCliente;
+function TPageIdentificarCliente.Embed(Value: TWinControl)
+  : TPageIdentificarCliente;
 begin
   Result := Self;
   Self.Parent := Value;
 end;
 
-function TPageIdentficarCliente.IdentificarClient(Value: System.SysUtils.TProc<string, string>):TPageIdentficarCliente;
-begin
-  Result := Self;
-  FProc := Value;
-end;
-
-function TPageIdentficarCliente.IdentificarCPF: TPageIdentficarCliente;
-begin
-  Result := Self;
-  pnlNome.Visible := False;
-  pnlIdentificacaoCliente.Height := (pnlIdentificacaoCliente.Height-pnlNome.Height);
-end;
-
-class function TPageIdentficarCliente.New(AoWner: TComponent): TPageIdentficarCliente;
-begin
-  Result := Self.Create(AoWner);
-end;
-
-procedure TPageIdentficarCliente.Panel7Click(Sender: TObject);
-begin
-  if Assigned(FProc) then
-    FProc(edtCPFCNPJ.Text, edtNome.Text);
-  Self.Close;
-end;
-
-procedure TPageIdentficarCliente.FormKeyDown(Sender: TObject; var Key: Word;
+procedure TPageIdentificarCliente.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   case Key of
     VK_F2: ShowMessage('Pesquisa cliente PageIdentificarCliente');
-    VK_F5: Panel7Click(Sender);
-    VK_ESCAPE: begin
-      Self.Close;
-      Self.DisposeOf;
-    end;
+    VK_F5: Panel11Click(Sender);
+    VK_ESCAPE: Self.Close;
   end;
 end;
 
-procedure TPageIdentficarCliente.FormResize(Sender: TObject);
+procedure TPageIdentificarCliente.FormResize(Sender: TObject);
 var
   lHeigth, lWidth: Integer;
 begin
-  lHeigth := Round((Self.Height - pnlIdentificacaoCliente.Height)/2);
-  lWidth := Round((Self.Width - pnlIdentificacaoCliente.Width)/2);
+  lHeigth := Round((Self.Height - pnlIdentificacaoCliente.Height) / 2);
+  lWidth := Round((Self.Width - pnlIdentificacaoCliente.Width) / 2);
 
   pnlIdentificacaoCliente.Margins.Left := lWidth;
   pnlIdentificacaoCliente.Margins.Right := lWidth;
@@ -111,9 +94,37 @@ begin
   pnlIdentificacaoCliente.Align := alClient;
 end;
 
-procedure TPageIdentficarCliente.FormShow(Sender: TObject);
+procedure TPageIdentificarCliente.FormShow(Sender: TObject);
 begin
-  edtCPFCNPJ.SetFocus;
+  edtCPFCnpj.SetFocus;
+end;
+
+function TPageIdentificarCliente.IdentificaCPF: TPageIdentificarCliente;
+begin
+  Result := Self;
+  pnlNome.Visible := False;
+  pnlIdentificacaoCliente.Height :=
+    (pnlIdentificacaoCliente.Height - pnlNome.Height);
+end;
+
+function TPageIdentificarCliente.identificarcliente
+  (Value: TProc<String, String>): TPageIdentificarCliente;
+begin
+  Result := Self;
+  FProc := Value;
+end;
+
+class function TPageIdentificarCliente.New(AOWner: TComponent)
+  : TPageIdentificarCliente;
+begin
+  Result := Self.Create(AOWner);
+end;
+
+procedure TPageIdentificarCliente.Panel11Click(Sender: TObject);
+begin
+  if Assigned(FProc) then
+    FProc(edtCPFCnpj.Text, edtNome.Text);
+  Self.Close;
 end;
 
 end.

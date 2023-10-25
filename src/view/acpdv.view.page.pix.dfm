@@ -1,34 +1,31 @@
 object FramePix: TFramePix
   Left = 0
   Top = 0
-  Width = 611
-  Height = 436
-  Padding.Left = 50
-  Padding.Top = 10
-  Padding.Right = 50
-  Padding.Bottom = 10
+  Width = 382
+  Height = 259
   TabOrder = 0
-  object Panel1: TPanel
-    Left = 50
-    Top = 10
-    Width = 511
-    Height = 416
+  object pnlQrCode: TPanel
+    Left = 0
+    Top = 0
+    Width = 382
+    Height = 259
     Align = alClient
     BevelOuter = bvNone
-    Padding.Left = 80
-    Padding.Top = 20
-    Padding.Right = 80
-    Padding.Bottom = 20
+    Padding.Left = 150
+    Padding.Top = 30
+    Padding.Right = 150
+    Padding.Bottom = 30
     TabOrder = 0
-    ExplicitLeft = 0
-    ExplicitTop = 0
-    ExplicitWidth = 554
-    ExplicitHeight = 411
     object Image1: TImage
-      Left = 80
-      Top = 20
-      Width = 351
-      Height = 376
+      AlignWithMargins = True
+      Left = 150
+      Top = 30
+      Width = 82
+      Height = 199
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 0
       Align = alClient
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D494844520000012C0000
@@ -151,8 +148,8 @@ object FramePix: TFramePix
         EE220000002574455874646174653A6D6F6469667900323032332D30392D3134
         5430303A31323A34372B30303A30304DFB569E0000000049454E44AE426082}
       Stretch = True
-      ExplicitLeft = 240
-      ExplicitTop = 192
+      ExplicitLeft = 144
+      ExplicitTop = 120
       ExplicitWidth = 105
       ExplicitHeight = 105
     end

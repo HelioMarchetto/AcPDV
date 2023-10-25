@@ -1,0 +1,21 @@
+program ACPDV;
+uses
+  Vcl.Forms,
+  acpdv.view.principal in 'src\view\acpdv.view.principal.pas' {pagePrincipal},
+  acpdv.view.page.login in 'src\view\acpdv.view.page.login.pas' {PageLogin},
+  acpdv.view.componente.Transparencia in 'src\view\Componentes\acpdv.view.componente.Transparencia.pas' {FundoTransparente},
+  acpdv.view.page.pagamentos in 'src\view\acpdv.view.page.pagamentos.pas' {pagePagamentos},
+  acpdv.view.page.pix in 'src\view\acpdv.view.page.pix.pas' {FramePix: TFrame},
+  acpdv.view.page.dinheiro in 'src\view\acpdv.view.page.dinheiro.pas' {FrameDinheiro: TFrame},
+  acpdv.view.page.cartao in 'src\view\acpdv.view.page.cartao.pas' {FrameCartao: TFrame},
+  acpdv.view.page.identificarcliente in 'src\view\acpdv.view.page.identificarcliente.pas' {PageIdentficarCliente},
+  acpdv.view.page.importarcliente in 'src\view\acpdv.view.page.importarcliente.pas' {pageImportarCliente},
+  acpdv.view.abrircaixa in 'src\view\acpdv.view.abrircaixa.pas' {pageAbrirCaixa};
+
+{$R *.res}
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TpagePrincipal, pagePrincipal);
+  Application.Run;
+end.

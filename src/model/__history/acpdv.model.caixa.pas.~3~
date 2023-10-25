@@ -1,0 +1,44 @@
+unit acpdv.model.caixa;
+
+interface
+
+uses
+  System.SysUtils;
+  System.TypInfo;
+
+type
+
+  TTurno = (MANHA, TARDE, NOITE);
+
+  TCaixa = class
+    private
+    FID: Integer;
+    FCaixa: Integer;
+    FTurno: TTurno;
+    FOperador: String;
+    FSupervisor: String;
+    FAberto: boolean;
+    FDataHoraAbertura: TDateTime;
+    FSaldoInicial: Currency;
+    public
+      property ID: Integer read FID write FID;
+      property Caixa: Integer read FCaixa write FCaixa;
+      property Turno: TTurno read FTurno write FTurno;
+      property Operador: String read FOperador write FOperador;
+      property Supervisor: String read FSupervisor write FSupervisor;
+      property Aberto: boolean read FAberto write FAberto;
+      property DataHoraAbertura: TDateTime read FDataHoraAbertura write FDataHoraAbertura;
+      property SaldoInicial: Currency read FSaldoInicial write FSaldoInicial;
+      class function New: TCaixa;
+  end;
+
+implementation
+
+{ TCaixa }
+
+class function TCaixa.New: TCaixa;
+begin
+  Result := Self.Create;
+end;
+
+end.

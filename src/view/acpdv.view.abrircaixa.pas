@@ -3,11 +3,21 @@ unit acpdv.view.abrircaixa;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.Buttons,
+  Vcl.StdCtrls,
+  Vcl.ExtCtrls, acpdv.model.caixa;
 
 type
-  TpageAbrirCaixa = class(TForm)
+  TPageAbrirCaixa = class(TForm)
     pnlContainer: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
@@ -24,57 +34,84 @@ type
     procedure FormShow(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure SpeedButton1Click(Sender: TObject);
   private
+    FProc: TProc<TCaixa>;
     procedure Responsive;
   public
-    class function New(AOwner : TComponent): TpageAbrirCaixa;
-    function Embed(Value: TWinControl): TpageAbrirCaixa;
+    class function New(AOwner: TComponent): TPageAbrirCaixa;
+    function Embed(Value: TWinControl): TPageAbrirCaixa;
+    function Informacoes(Value: TProc<TCaixa>): TPageAbrirCaixa;
   end;
-
-var
-  pageAbrirCaixa: TpageAbrirCaixa;
 
 implementation
 
 {$R *.dfm}
+{ TForm1 }
 
-{ TpageAbrirCaixa }
-
-function TpageAbrirCaixa.Embed(Value: TWinControl): TpageAbrirCaixa;
+function TPageAbrirCaixa.Embed(Value: TWinControl): TPageAbrirCaixa;
 begin
   Result := Self;
   Self.Parent := Value;
 end;
 
-procedure TpageAbrirCaixa.FormKeyDown(Sender: TObject; var Key: Word;
+procedure TPageAbrirCaixa.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   if Key = VK_ESCAPE then
     Self.Close;
 end;
 
-procedure TpageAbrirCaixa.FormResize(Sender: TObject);
+procedure TPageAbrirCaixa.FormResize(Sender: TObject);
 begin
   Responsive;
 end;
 
-procedure TpageAbrirCaixa.FormShow(Sender: TObject);
+procedure TPageAbrirCaixa.FormShow(Sender: TObject);
 begin
   Responsive;
 end;
 
-class function TpageAbrirCaixa.New(AOwner: TComponent): TpageAbrirCaixa;
+function TPageAbrirCaixa.Informacoes(Value: TProc<TCaixa>): TPageAbrirCaixa;
+begin
+  Result := Self;
+  FProc := Value;
+end;
+
+class function TPageAbrirCaixa.New(AOwner: TComponent): TPageAbrirCaixa;
 begin
   Result := Self.Create(AOwner);
 end;
 
-procedure TpageAbrirCaixa.Responsive;
+procedure TPageAbrirCaixa.Responsive;
 begin
   pnlContainer.Margins.Left := Round((Self.Width - pnlContainer.Width) / 2);
   pnlContainer.Margins.Right := Round((Self.Width - pnlContainer.Width) / 2);
   pnlContainer.Margins.Top := Round((Self.Height - pnlContainer.Height) / 2);
   pnlContainer.Margins.Bottom := Round((Self.Height - pnlContainer.Height) / 2);
   pnlContainer.Align := alClient;
+end;
+
+procedure TPageAbrirCaixa.SpeedButton1Click(Sender: TObject);
+var
+  lCaixa: TCaixa;
+  lTurno: TTurno;
+  lData: TDateTime;
+begin
+  lData := Now;
+  lCaixa := TCaixa.New;
+  try
+    lCaixa.Id := 1;
+    lCaixa.Caixa := 1;
+    lCaixa.Turno := lTurno.RetornaTurno(lData);
+    lCaixa.Aberto := True;
+    lCaixa.DataHoraAbertura := lData;
+    lCaixa.SaldoInicial := StrToCurr(StringReplace(edtValorSuprimento.Text, 'R$ ', '', [rfReplaceAll, rfIgnoreCase]));
+    FProc(lCaixa);
+  finally
+    lCaixa.DisposeOf;
+    Self.Close;
+  end;
 end;
 
 end.

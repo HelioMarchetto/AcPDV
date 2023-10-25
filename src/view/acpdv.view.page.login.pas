@@ -31,10 +31,12 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
-    { Private declarations }
-      FFundo : TFundoTransparente;
+    FFundo: TFundoTransparente;
+    FProc: TProc<String>;
   public
-
+    class function New(AOWner: TComponent): TPageLogin;
+    function Embed(Value: TWinControl): TPageLogin;
+    function Informacao(Value: TProc<String>): TPageLogin;
   end;
 
 var
@@ -47,12 +49,19 @@ implementation
 procedure TPageLogin.btnLogarClick(Sender: TObject);
 begin
   if not ((edtUsuario.Text = 'Alessandro') and
-           (edtSenha.Text = '123')) then
+        (edtSenha.Text = '123')) then
   begin
-    ShowMessage('Login e senha inválido');
+    ShowMessage('Login e senha invalido');
     Exit;
   end;
-  Close
+  FProc(edtUsuario.Text);
+  close;
+end;
+
+function TPageLogin.Embed(Value: TWinControl): TPageLogin;
+begin
+  Result := Self;
+  Self.Parent := Value;
 end;
 
 procedure TPageLogin.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -62,9 +71,20 @@ end;
 
 procedure TPageLogin.FormCreate(Sender: TObject);
 begin
-  FFundo := TFundoTransparente.Create(nil);
+  FFundo:= TFundoTransparente.Create(nil);
   FFundo.Parent := pnlImage;
   FFundo.Show;
+end;
+
+function TPageLogin.Informacao(Value: TProc<String>): TPageLogin;
+begin
+  Result := Self;
+  FProc := Value;
+end;
+
+class function TPageLogin.New(AOWner: TComponent): TPageLogin;
+begin
+  Result := Self.Create(AOwner);
 end;
 
 end.
